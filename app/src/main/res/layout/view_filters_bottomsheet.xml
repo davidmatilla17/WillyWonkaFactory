@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    >
+
+    <TextView
+        android:id="@+id/gender_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
+        android:text="@string/gender"/>
+
+    <RadioGroup
+        android:id="@+id/genderRG"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/gender_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <RadioButton
+            android:id="@+id/maleRB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_m"/>
+        <RadioButton
+            android:id="@+id/femaleRB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_f"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/proffesion_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/genderRG"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
+        android:text="@string/profession"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/filter_professionTIL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/proffesion_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/filter_professionTIET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/clearEFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:text="@string/clear"
+        app:icon="@drawable/ic_delete"
+        app:layout_constraintTop_toBottomOf="@id/filter_professionTIL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

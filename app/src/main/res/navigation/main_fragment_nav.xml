@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SplashFragment">
+
+    <fragment
+        android:id="@+id/SplashFragment"
+        android:name="com.davidmatillacode.wonkasfactory.ui.view.fragments.SplashFragment"
+        android:label="@string/splash_fragment_label"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_SplashFragment_to_FirstFragment"
+            app:destination="@id/StaffListFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/SplashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/StaffListFragment"
+        android:name="com.davidmatillacode.wonkasfactory.ui.view.fragments.StaffListFragment"
+        android:label="@string/staff_list_fragment_label"
+        app:launchSingleTop="true"
+        tools:layout="@layout/fragment_staff_list">
+
+        <action
+            android:id="@+id/action_StaffListFragment_to_StaffDetailFragment"
+            app:destination="@id/StaffDetailFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/StaffDetailFragment"
+        android:name="com.davidmatillacode.wonkasfactory.ui.view.fragments.StaffDetailFragment"
+        android:label="@string/staff_detail_fragment_label"
+        tools:layout="@layout/fragment_staff_detail">
+        <argument
+            android:name="workerId"
+            app:argType="integer"
+            android:defaultValue="1"/>
+    </fragment>
+</navigation>

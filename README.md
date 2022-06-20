@@ -1,9 +1,13 @@
 Android application to help Willy Wonka's HR Department browse and to check the details of the
 Oompa Loompas.
+
 Libraries in use : 
-Dagger-hilt : Dependency injecton
+Dagger-hilt : Dependency injecton 
+
 Realm : Internal to store data
+
 Retrofit : To make requests to the api and map the response.
+
 Glide : To load and cache images
 
 Resources links  :

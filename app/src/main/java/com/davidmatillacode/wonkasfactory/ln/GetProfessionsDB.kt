@@ -5,6 +5,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetProfessionsDB @Inject constructor( private val repository : StaffRepository){
-    operator fun invoke(professionFilter : String) : List<String?> = repository.getprofessionsDB(professionFilter)
+class GetProfessionsDB @Inject constructor(private val repository: StaffRepository) {
+    operator fun invoke(professionFilter: String): List<String?> =
+        repository.getprofessionsDB(professionFilter)
 }

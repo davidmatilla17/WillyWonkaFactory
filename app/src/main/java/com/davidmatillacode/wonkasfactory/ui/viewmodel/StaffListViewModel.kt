@@ -37,27 +37,22 @@ class StaffListViewModel @Inject constructor(
             val genderFilter = genderFilterData.value ?: ""
             val professionFilter = professionFilterData.value ?: ""
 
-            genderFilterData.postValue(genderFilter)
-            professionFilterData.postValue(professionFilter)
-
             val list = getStaffListDB(genderFilter, professionFilter)
             staffListData.postValue(list)
         }
     }
 
-    fun applyGenderFilter(genderfilter: String) {
+    fun applyGenderFilter(genderFilter: String) {
         viewModelScope.launch {
-            genderFilterData.postValue(genderfilter)
             val professionFilter = professionFilterData.value ?: ""
-            getStaffList(genderfilter, professionFilter)
+            getStaffList(genderFilter, professionFilter)
         }
     }
 
     fun applyProfesionFilter(professionfilter: String) {
         viewModelScope.launch {
-            professionFilterData.postValue(professionfilter)
-            val genderfilter = genderFilterData.value ?: ""
-            getStaffList(genderfilter, professionfilter)
+            val genderFilter = genderFilterData.value ?: ""
+            getStaffList(genderFilter, professionfilter)
         }
     }
 

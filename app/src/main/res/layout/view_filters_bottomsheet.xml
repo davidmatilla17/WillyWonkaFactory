@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    >
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/gender_hint"
@@ -15,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="@dimen/text_medium"
         android:textStyle="bold"
-        android:text="@string/gender"/>
+        android:text="@string/gender" />
 
     <RadioGroup
         android:id="@+id/genderRG"
@@ -24,16 +23,18 @@
         app:layout_constraintTop_toBottomOf="@id/gender_hint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
         <RadioButton
             android:id="@+id/maleRB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/gender_m"/>
+            android:text="@string/gender_m" />
+
         <RadioButton
             android:id="@+id/femaleRB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/gender_f"/>
+            android:text="@string/gender_f" />
     </RadioGroup>
 
     <TextView
@@ -45,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="@dimen/text_medium"
         android:textStyle="bold"
-        android:text="@string/profession"/>
+        android:text="@string/profession" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filter_professionTIL"
         android:layout_width="0dp"
@@ -54,10 +56,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="8dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/filter_professionTIET"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -72,6 +75,6 @@
         app:layout_constraintTop_toBottomOf="@id/filter_professionTIL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

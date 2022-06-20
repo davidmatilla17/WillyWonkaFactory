@@ -1,6 +1,5 @@
 package com.davidmatillacode.wonkasfactory.data.prodivers
 
-import com.davidmatillacode.wonkasfactory.core.RealmHelper
 import com.davidmatillacode.wonkasfactory.data.model.entities.db.StaffWorkerRlm
 import io.realm.kotlin.Realm
 import io.realm.kotlin.UpdatePolicy
@@ -47,7 +46,7 @@ class StaffProvider @Inject constructor(private val realm: Realm) {
 
     fun getProfessions(filter: String): List<String?> {
 
-        val  result = if (filter.isNotBlank()) {
+        val result = if (filter.isNotBlank()) {
             realm.query(StaffWorkerRlm::class, "profession contains[c] $0", filter)
                 .distinct("profession").find().toRealmList()
         } else {

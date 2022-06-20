@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Material3.Light.NoActionBar"
-    >
+    android:theme="@style/Theme.Material3.Light.NoActionBar">
 
     <fragment
         android:id="@+id/nav_host_fragment_content_main"

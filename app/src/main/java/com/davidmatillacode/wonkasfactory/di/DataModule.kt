@@ -17,19 +17,19 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() : Retrofit{
+    fun provideRetrofit(): Retrofit {
         return RetrofitHelper.getRetrofit()
     }
 
     @Singleton
     @Provides
-    fun provideApiClient(retrofit: Retrofit) : StaffApiClient{
+    fun provideApiClient(retrofit: Retrofit): StaffApiClient {
         return retrofit.create(StaffApiClient::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideRealm() : Realm {
+    fun provideRealm(): Realm {
         return RealmHelper.getRealm()
     }
 

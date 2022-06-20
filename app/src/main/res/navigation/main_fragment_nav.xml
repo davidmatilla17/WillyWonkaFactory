@@ -28,8 +28,7 @@
 
         <action
             android:id="@+id/action_StaffListFragment_to_StaffDetailFragment"
-            app:destination="@id/StaffDetailFragment"
-            />
+            app:destination="@id/StaffDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/StaffDetailFragment"
@@ -39,6 +38,6 @@
         <argument
             android:name="workerId"
             app:argType="integer"
-            android:defaultValue="1"/>
+            android:defaultValue="1" />
     </fragment>
 </navigation>

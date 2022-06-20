@@ -6,6 +6,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetWorkerDetailWithIdDB @Inject constructor(private val repository : StaffRepository) {
-    operator fun invoke(id:Int):StaffWorker? = repository.getWorkerDetailWithIdDB(id)
+class GetWorkerDetailWithIdDB @Inject constructor(private val repository: StaffRepository) {
+    operator fun invoke(id: Int): StaffWorker? = repository.getWorkerDetailWithIdDB(id)
 }

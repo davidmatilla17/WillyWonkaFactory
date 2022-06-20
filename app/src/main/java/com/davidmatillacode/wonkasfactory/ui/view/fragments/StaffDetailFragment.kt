@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -15,8 +14,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.davidmatillacode.wonkasfactory.R
 import com.davidmatillacode.wonkasfactory.databinding.FragmentStaffDetailBinding
 import com.davidmatillacode.wonkasfactory.ui.viewmodel.StaffDetailViewModel
-import com.davidmatillacode.wonkasfactory.ui.viewmodel.StaffListViewModel
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -51,7 +48,7 @@ class StaffDetailFragment : Fragment() {
 
         viewModel.loadWorkerInfo(args.workerId)
 
-        viewModel.workerDetailData.observe(viewLifecycleOwner){
+        viewModel.workerDetailData.observe(viewLifecycleOwner) {
             binding.nameTV.text = it.firstName
             binding.lastnameTV.text = it.lastName
             binding.countryTV.text = it.country

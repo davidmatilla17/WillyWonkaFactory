@@ -25,4 +25,5 @@ data class StaffWorker(
     @SerializedName("country")
     val country: String?,
     @SerializedName("height")
-    val height: Int?)
+    val height: Int?
+)

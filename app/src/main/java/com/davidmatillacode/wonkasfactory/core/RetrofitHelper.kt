@@ -8,7 +8,8 @@ object RetrofitHelper {
         return Retrofit.Builder()
             .baseUrl("https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/")
             .addConverterFactory(
-                GsonConverterFactory.create())
+                GsonConverterFactory.create()
+            )
             .build()
     }
 }

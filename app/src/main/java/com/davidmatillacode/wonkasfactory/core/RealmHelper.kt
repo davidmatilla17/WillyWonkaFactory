@@ -6,9 +6,13 @@ import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 
 object RealmHelper {
-    fun getRealm () : Realm{
-        val config = RealmConfiguration.Builder(setOf(StaffWorkerRlm::class,
-                                                        FavoriteRlm::class))
+    fun getRealm(): Realm {
+        val config = RealmConfiguration.Builder(
+            setOf(
+                StaffWorkerRlm::class,
+                FavoriteRlm::class
+            )
+        )
             .build()
         return Realm.open(config)
     }

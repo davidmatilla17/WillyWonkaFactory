@@ -6,6 +6,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LoadAllStaffList @Inject constructor(private val repository : StaffRepository){
-    suspend operator fun invoke():List<StaffWorker> = repository.getAllWorkers()
+class LoadAllStaffList @Inject constructor(private val repository: StaffRepository) {
+    suspend operator fun invoke(): List<StaffWorker> = repository.getAllWorkers()
 }

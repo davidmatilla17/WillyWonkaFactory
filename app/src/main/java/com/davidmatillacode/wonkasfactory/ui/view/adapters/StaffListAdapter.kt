@@ -11,7 +11,8 @@ import com.davidmatillacode.wonkasfactory.data.model.entities.StaffWorker
 import com.davidmatillacode.wonkasfactory.databinding.ViewStaffListCellBinding
 import com.davidmatillacode.wonkasfactory.intefaces.OnWorkerClickListener
 
-class StaffListAdapter(val listener: OnWorkerClickListener) : RecyclerView.Adapter<StaffListAdapter.StaffListViewHolder>() {
+class StaffListAdapter(val listener: OnWorkerClickListener) :
+    RecyclerView.Adapter<StaffListAdapter.StaffListViewHolder>() {
 
     var staffList: List<StaffWorker> = emptyList()
 
@@ -30,7 +31,7 @@ class StaffListAdapter(val listener: OnWorkerClickListener) : RecyclerView.Adapt
         val worker = staffList[position]
         holder.binding.genderTV.text = if (worker.gender != null) {
             if (worker.gender.equals("F")) {
-              holder.itemView.context.getString(R.string.gender_f)
+                holder.itemView.context.getString(R.string.gender_f)
             } else {
                 holder.itemView.context.getString(R.string.gender_m)
             }
@@ -40,7 +41,7 @@ class StaffListAdapter(val listener: OnWorkerClickListener) : RecyclerView.Adapt
 
         holder.binding.nameTV.text = "${worker.firstName} ${worker.lastName}"
         holder.binding.proffesionTV.text = worker.profession ?: ""
-        holder.binding.idTV.text= "#${worker.id}"
+        holder.binding.idTV.text = "#${worker.id}"
 
         holder.binding.root.setOnClickListener {
             listener.workerClick(worker.id)

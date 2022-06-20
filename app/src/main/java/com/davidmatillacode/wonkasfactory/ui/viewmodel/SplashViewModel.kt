@@ -11,8 +11,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val loadAllStaffList : LoadAllStaffList,
-    private val storeStaffListDB : StoreStaffListDB
+    private val loadAllStaffList: LoadAllStaffList,
+    private val storeStaffListDB: StoreStaffListDB
 ) : ViewModel() {
 
     val loadEndEvent = MutableLiveData<Boolean>()
@@ -20,7 +20,7 @@ class SplashViewModel @Inject constructor(
     fun loadAllData() {
         viewModelScope.launch {
             val info = loadAllStaffList()
-           storeStaffListDB(info)
+            storeStaffListDB(info)
             loadEndEvent.postValue(true)
         }
     }

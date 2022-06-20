@@ -6,6 +6,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class StoreStaffListDB @Inject constructor(private val repository : StaffRepository){
-    suspend operator fun invoke(workersList : List<StaffWorker>) = repository.storeStaffListDB(workersList)
+class StoreStaffListDB @Inject constructor(private val repository: StaffRepository) {
+    suspend operator fun invoke(workersList: List<StaffWorker>) =
+        repository.storeStaffListDB(workersList)
 }

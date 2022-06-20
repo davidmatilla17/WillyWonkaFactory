@@ -8,7 +8,8 @@ import com.davidmatillacode.wonkasfactory.R
 import com.davidmatillacode.wonkasfactory.databinding.ViewProfessionsListCellBinding
 import com.davidmatillacode.wonkasfactory.ui.viewmodel.StaffListViewModel
 
-class ProfessionsListAdapter(private val staffViewModel : StaffListViewModel) : RecyclerView.Adapter<ProfessionsListAdapter.ViewHolder>() {
+class ProfessionsListAdapter(private val staffViewModel: StaffListViewModel) :
+    RecyclerView.Adapter<ProfessionsListAdapter.ViewHolder>() {
     var proffesionsList: List<String?> = emptyList()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,9 +29,9 @@ class ProfessionsListAdapter(private val staffViewModel : StaffListViewModel) : 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val profession = proffesionsList.get(position)
-        holder.binding.professionTV.text = profession?:""
+        holder.binding.professionTV.text = profession ?: ""
         holder.binding.root.setOnClickListener {
-            staffViewModel.applyProfesionFilter(profession?:"")
+            staffViewModel.applyProfesionFilter(profession ?: "")
         }
     }
 

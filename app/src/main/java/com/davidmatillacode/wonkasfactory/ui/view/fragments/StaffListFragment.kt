@@ -55,9 +55,9 @@ class StaffListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(viewModel.staffListData.value == null) {
+        if (viewModel.staffListData.value == null) {
             viewModel.getStaffList()
-        }else{
+        } else {
             viewModel.reloadStaffList()
         }
     }
@@ -69,10 +69,13 @@ class StaffListFragment : Fragment() {
         binding.staffRV.layoutManager = layoutManager
         binding.staffRV.adapter = StaffListAdapter(object : OnWorkerClickListener {
             override fun workerClick(id: Int?) {
-                if(id != null) {
+                if (id != null) {
                     val args = Bundle()
                     args.putInt("workerId", id)
-                    findNavController().navigate(R.id.action_StaffListFragment_to_StaffDetailFragment,args)
+                    findNavController().navigate(
+                        R.id.action_StaffListFragment_to_StaffDetailFragment,
+                        args
+                    )
                 }
             }
         })
@@ -114,16 +117,17 @@ class StaffListFragment : Fragment() {
 
         binding.filtersView.clearEFAB.setOnClickListener {
             binding.filtersView.genderRG.clearCheck()
-            binding.filtersView.filterProfessionTIET.text = Editable.Factory.getInstance().newEditable("")
+            binding.filtersView.filterProfessionTIET.text =
+                Editable.Factory.getInstance().newEditable("")
             viewModel.getStaffList()
         }
 
-        viewModel.genderFilterData.observe(viewLifecycleOwner){
-            if(it.equals("M")){
+        viewModel.genderFilterData.observe(viewLifecycleOwner) {
+            if (it.equals("M")) {
                 binding.filtersView.maleRB.isChecked = true
-            }else if(it.equals("F")){
+            } else if (it.equals("F")) {
                 binding.filtersView.femaleRB.isChecked = true
-            }else{
+            } else {
                 binding.filtersView.genderRG.clearCheck()
             }
         }
@@ -131,7 +135,7 @@ class StaffListFragment : Fragment() {
 
     fun prepareProfessionsBottomSheet() {
         binding.proffesionView.closeIV.setOnClickListener {
-          closeProfessionBottomSheet()
+            closeProfessionBottomSheet()
         }
 
         professionsSheetBehavior = BottomSheetBehavior.from(binding.proffesionSheet)
@@ -141,24 +145,28 @@ class StaffListFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.proffesionView.professionList.layoutManager = layoutManager
         binding.proffesionView.professionList.adapter = ProfessionsListAdapter(viewModel)
-        val adapter: ProfessionsListAdapter = binding.proffesionView.professionList.adapter as ProfessionsListAdapter
+        val adapter: ProfessionsListAdapter =
+            binding.proffesionView.professionList.adapter as ProfessionsListAdapter
         viewModel.professionListFilterData.observe(viewLifecycleOwner) {
             adapter.proffesionsList = it
             adapter.notifyDataSetChanged()
         }
-        binding.proffesionView.professionTIET.doOnTextChanged { text, start, before, count -> viewModel.seachProfession(
-            text.toString()
-        )  }
+        binding.proffesionView.professionTIET.doOnTextChanged { text, start, before, count ->
+            viewModel.seachProfession(
+                text.toString()
+            )
+        }
 
         viewModel.seachProfession()
 
-        viewModel.professionFilterData.observe(viewLifecycleOwner){
-            binding.filtersView.filterProfessionTIET.text = Editable.Factory.getInstance().newEditable(it)
+        viewModel.professionFilterData.observe(viewLifecycleOwner) {
+            binding.filtersView.filterProfessionTIET.text =
+                Editable.Factory.getInstance().newEditable(it)
             closeProfessionBottomSheet()
         }
     }
 
-    fun closeProfessionBottomSheet(){
+    fun closeProfessionBottomSheet() {
         hideKeyboard()
         //wait util keyboard is hidden to avoid graphical bugs with bottonsheet
         Handler(Looper.getMainLooper()).postDelayed({

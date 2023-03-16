@@ -14,7 +14,7 @@
         <action
             android:id="@+id/action_SplashFragment_to_FirstFragment"
             app:destination="@id/StaffListFragment"
-            app:launchSingleTop="false"
+            app:launchSingleTop="true"
             app:popUpTo="@id/SplashFragment"
             app:popUpToInclusive="true" />
     </fragment>
